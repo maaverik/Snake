@@ -1,11 +1,15 @@
 $(document).ready(function(){
-	// var temp = $(document).height();
-	// $("#canvas").attr("height", temp  - 50);
-	// temp 	 = $(document).width(); 
-	// $("#canvas").attr("width", temp - 50);
+	// var temp1 = $(window).height();
+	// console.log("height = " + temp1);
+	// $("#canvas").attr("height", 500);
+	// var temp2 	 = $(window).width(); 
+	// console.log("width = " + temp2);
+	// $("#canvas").attr("width", 700);
 
 	var h      = $("#canvas").height();
+	//console.log(h);
 	var w      = $("#canvas").width();
+	//console.log(w);
 	var ctx    = ($("#canvas")[0]).getContext("2d");	
 
 	var cellwidth = 10;
@@ -73,13 +77,14 @@ $(document).ready(function(){
 		
 		// Handle getting food
 
+		var tail;
 		if(x === food.x && y === food.y){
-			var tail = {x : x, y: y};
+			tail = {x : x, y: y};
 			createFood();
 			score++;
 		} 
 		else{
-			var tail = snake.pop();
+			tail = snake.pop();
 			tail.x = x;
 			tail.y = y;
 		}
@@ -92,6 +97,7 @@ $(document).ready(function(){
 		}
 		paint_cell(food);
 		ctx.font = "18px Georgia";
+		ctx.fillStyle = "blue";
 		ctx.fillText("Score : " + score, 5, h - 5);
 	}
 
