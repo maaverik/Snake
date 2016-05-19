@@ -105,7 +105,7 @@ $(document).ready(function(){
 		x = cell.x;
 		y = cell.y;
 		//console.log("paint");
-		ctx.fillStyle = "red";
+		ctx.fillStyle = "blue";
 		ctx.fillRect(x*cellwidth, y*cellwidth, cellwidth, cellwidth);
 		//console.log(x*cellwidth, y*cellwidth, cellwidth, cellwidth);
 		ctx.strokeStyle = "white";
