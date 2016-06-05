@@ -1,17 +1,11 @@
 $(document).ready(function(){
-	// var temp1 = $(window).height();
-	// console.log("height = " + temp1);
-	// $("#canvas").attr("height", 500);
-	// var temp2 	 = $(window).width(); 
-	// console.log("width = " + temp2);
-	// $("#canvas").attr("width", 700);
-
+	var temp1 = $(window).height();
+	$("#canvas").attr("height", temp1 - 100);
+	var temp2 	 = $(window).width();
+	$("#canvas").attr("width", temp2 - 300);
 	var h      = $("#canvas").height();
-	//console.log(h);
 	var w      = $("#canvas").width();
-	//console.log(w);
-	var ctx    = ($("#canvas")[0]).getContext("2d");	
-
+	var ctx    = ($("#canvas")[0]).getContext("2d");
 	var cellwidth = 10;
 	var initLength = 5;
 	var food;
@@ -20,14 +14,13 @@ $(document).ready(function(){
 	var snake;
 
 	function newgame(){
-		//console.log("newgame");
 		dir = "right";
 		score = 0;
 		snake = [];
 		createSnake();
 		createFood();
-		
-		if(typeof game_loop != "undefined") 
+
+		if(typeof game_loop != "undefined")
 			clearInterval(game_loop);
 		game_loop = setInterval(draw, 80);
 	}
@@ -35,7 +28,7 @@ $(document).ready(function(){
 	function createFood(){
 		food = {
 			x : Math.round(Math.random() * w/cellwidth),
-			y : Math.round(Math.random() * h/cellwidth) 
+			y : Math.round(Math.random() * h/cellwidth)
 		};
 	}
 
@@ -53,28 +46,28 @@ $(document).ready(function(){
 		ctx.strokeRect(0, 0, w, h);
 
 		// For movement, pop out the tail and place it in front of the current head cell
-		
+
 		var x = snake[0].x;
 		var y = snake[0].y;
 		// console.log(x);
 		// console.log(y);
 
-		if(dir === "right") 
+		if(dir === "right")
 			x++;
-		else if(dir === "left") 
+		else if(dir === "left")
 			x--;
-		else if(dir === "up") 
+		else if(dir === "up")
 			y--;
-		else if(dir === "down") 
+		else if(dir === "down")
 			y++;
 
 		// Handle collisions with walls and body
-		
+
 		if(x === -1 || x === w/cellwidth || y === -1 || y === h/cellwidth || check_collision(x, y, snake)){
 			newgame();
 			return;
 		}
-		
+
 		// Handle getting food
 
 		var tail;
@@ -82,7 +75,7 @@ $(document).ready(function(){
 			tail = {x : x, y: y};
 			createFood();
 			score++;
-		} 
+		}
 		else{
 			tail = snake.pop();
 			tail.x = x;
@@ -121,14 +114,14 @@ $(document).ready(function(){
 	}
 
 	// Keypress handler
-	
+
 	$(document).keydown(function(e){
 		var key = e.which;
-		if(key == "37" && dir != "right") 
+		if(key == "37" && dir != "right")
 			dir = "left";
 		else if(key == "38" && dir != "down")
 		 	dir = "up";
-		else if(key == "39" && dir != "left") 
+		else if(key == "39" && dir != "left")
 			dir = "right";
 		else if(key == "40" && dir != "up")
 			dir = "down";
