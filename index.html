@@ -1,15 +1,26 @@
-<DOCTYPE html>
-
+<!DOCTYPE html>
 <html>
-	<head>
-		<title> Snake</title>
-	</head>
-
-	<body>
-		<canvas  id = "canvas" width = "1000" height = "600"> </canvas>
-		<h3 style="position: absolute; left:1050; top:20;">Use w,s,a,d for red snake and arrow keys for blue snake. The snakes should not come into contact with any of the walls or their own bodies or eachother's bodies or food.</h3>
-		<!-- Jquery -->
-		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-		<script src = "two-player.js" type = "text/javascript"> </script>
-	</body>
+<head>
+	<title>Choose your game</title>
+</head>
+<body>
+<h1 style="font-size: 250%;">Choose your game: </h1>
+	<a href="index_one.html">One-player game</a> <br>
+	<a href="index_two.html">Two player game</a>
+	<!--Button styles-->
+	<style type="text/css">
+		a:link, a:visited {
+			font-size: 200%;
+		    background-color: #f44336;
+		    color: white;
+		    padding: 14px 25px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		}
+		a:hover, a:active {
+		    background-color: orange;
+		}
+	</style>
+</body>
 </html>
