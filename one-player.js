@@ -49,8 +49,8 @@ $(document).ready(function(){
 
 		var x = snake[0].x;
 		var y = snake[0].y;
-		// console.log(x);
-		// console.log(y);
+		// console.log(x,w);
+		// console.log(y,h);
 
 		if(dir === "right")
 			x++;
@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 		// Handle collisions with walls and body
 
-		if(x === -1 || x === w/cellwidth || y === -1 || y === h/cellwidth || check_collision(x, y, snake)){
+		if(x <= -1 || x >= (w/cellwidth) || y <= -1 || y >= (h/cellwidth) || check_collision(x, y, snake)){
 			newgame();
 			return;
 		}

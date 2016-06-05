@@ -18,7 +18,7 @@ $(document).ready(function(){
 	var snake2;
 
 	function newgame(option){
-		console.log("newgame");
+		//console.log("newgame");
 		if(option === 1){
 			dir1 = "right";
 			score1 = 0;
@@ -97,8 +97,8 @@ $(document).ready(function(){
 
 		var x = snake1[0].x;
 		var y = snake1[0].y;
-		console.log("1: " + x);
-		console.log("1: " + y);
+		//console.log("1: " + x);
+		//console.log("1: " + y);
 
 		if(dir1 === "right")
 			x++;
@@ -111,7 +111,7 @@ $(document).ready(function(){
 
 		// Handle collisions with walls and body
 
-		if(x === -1 || x === w/cellwidth || y === -1 || y === h/cellwidth || check_collision(x, y, snake1) || check_collision(x, y, snake2) || (x === food2.x && y === food2.y)){
+		if(x <= -1 || x >= (w/cellwidth) || y <= -1 || y >= (h/cellwidth) || check_collision(x, y, snake1) || check_collision(x, y, snake2) || (x === food2.x && y === food2.y)){
 			newgame(1);
 			return;
 		}
@@ -149,7 +149,7 @@ $(document).ready(function(){
 
 		// Handle collisions with walls and body
 
-		if(x === -1 || x === w/cellwidth || y === -1 || y === h/cellwidth || check_collision(x, y, snake2) || check_collision(x, y, snake1) || (x === food1.x && y === food1.y)){
+		if(x <= -1 || x >= (w/cellwidth) || y <= -1 || y >= (h/cellwidth) || check_collision(x, y, snake2) || check_collision(x, y, snake1) || (x === food1.x && y === food1.y)){
 			newgame(2);
 			return;
 		}
